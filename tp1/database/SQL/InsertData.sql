@@ -7,3 +7,5 @@ INSERT INTO students (department_id, first_name, last_name) VALUES (1, 'Eli', 'C
 INSERT INTO students (department_id, first_name, last_name) VALUES (2, 'Emma', 'Carena');
 INSERT INTO students (department_id, first_name, last_name) VALUES (2, 'Jack', 'Uzzi');
 INSERT INTO students (department_id, first_name, last_name) VALUES (3, 'Aude', 'Javel');
+
+#test
