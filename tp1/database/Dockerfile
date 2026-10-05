@@ -5,4 +5,3 @@ ENV POSTGRES_DB=db \
    POSTGRES_PASSWORD=pwd
 
 COPY ./SQL/ /docker-entrypoint-initdb.d/
-COPY ./index.html ./templates/
