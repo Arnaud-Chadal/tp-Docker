@@ -39,6 +39,7 @@ jobs:
       - name: Login to DockerHub
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
+
       - name: Build image and push backend
         uses: docker/build-push-action@v6
         with:
@@ -46,6 +47,8 @@ jobs:
           context: tp1/java/simpleapi
           # Note: tags has to be all lower-case
           tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-simple-api:latest
+          push: ${{ github.ref == 'refs/heads/main' }}
+
 
       - name: Build image and push database
         uses: docker/build-push-action@v6
@@ -54,6 +57,8 @@ jobs:
           context: tp1/database
           # Note: tags has to be all lower-case
           tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-simple-api:latest
+          push: ${{ github.ref == 'refs/heads/main' }}
+
 
       - name: Build image and push web
         uses: docker/build-push-action@v6
@@ -62,3 +67,4 @@ jobs:
           context: tp1/HTML
           # Note: tags has to be all lower-case
           tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-simple-api:latest
+          push: ${{ github.ref == 'refs/heads/main' }}
