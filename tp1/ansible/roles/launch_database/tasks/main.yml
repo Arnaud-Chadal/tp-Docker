@@ -1,0 +1,23 @@
+---
+- name: Log in to GHCR
+  community.docker.docker_login:
+    registry_url: ghcr.io
+    username: "{{ ghcr_user }}"
+    password: "{{ ghcr_token }}"
+  vars:
+    ansible_python_interpreter: /opt/docker_venv/bin/python
+
+- name: Run Postgres Database container
+  community.docker.docker_container:
+    name: db
+    image: "docker.io/chadalarnaud/tp-devops-database:latest"
+    state: started
+    restart_policy: always
+    networks:
+      - name: app_network
+    env:
+      POSTGRES_DB: "{{ db_name }}"
+      POSTGRES_USER: "{{ db_user }}"
+      POSTGRES_PASSWORD: "{{ db_password }}"
+  vars:
+    ansible_python_interpreter: /opt/docker_venv/bin/python

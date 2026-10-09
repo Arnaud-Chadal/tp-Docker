@@ -1,0 +1,24 @@
+---
+- name: Log in to GHCR
+  community.docker.docker_login:
+    registry_url: ghcr.io
+    username: "{{ ghcr_user }}"
+    password: "{{ ghcr_token }}"
+  vars:
+    ansible_python_interpreter: /opt/docker_venv/bin/python
+
+- name: Run Java App container
+  community.docker.docker_container:
+    name: app
+    image: "docker.io/chadalarnaud/tp-devops-simple-api:latest"
+    state: started
+    restart_policy: always
+    networks:
+      - name: app_network
+    env:
+      DATABASE_HOST: "db"
+      DATABASE_NAME: "{{ db_name }}"
+      DATABASE_USER: "{{ db_user }}"
+      DATABASE_PASSWORD: "{{ db_password }}"
+  vars:
+    ansible_python_interpreter: /opt/docker_venv/bin/python

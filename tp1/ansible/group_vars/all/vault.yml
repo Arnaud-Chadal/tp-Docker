@@ -1,0 +1,8 @@
+# Identifiants GitHub Container Registry (ghcr.io)
+ghcr_user: "arnaud-chadal"
+ghcr_token: "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" # Doit avoir les droits 'read:packages'
+
+# Variables Base de données
+db_name: "app_db"
+db_user: "usr"
+db_password: "pwd"

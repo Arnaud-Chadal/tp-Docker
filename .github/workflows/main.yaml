@@ -72,4 +72,24 @@ jobs:
           # Note: tags has to be all lower-case
           tags:  chadalarnaud/tp-devops-httpd:latest
           push: ${{ github.ref == 'refs/heads/main' }}
+
+
+  deploy-app:
+    needs: build-and-push-docker-image
+    # run only when code is compiling and tests are passing
+    runs-on: ubuntu-24.04
+
+    # steps to perform in job
+    steps:
+      - uses: actions/checkout@v4
+      - name: install ansible
+        runs: |
+          sudo apt-get update
+          sudo apt-get install -y ansible
+      - name: create ssh key
+        run: |
+          echo "${{secrets.SSH_KEY}} > id_rsa"
+          chmod 400 id_rsa
+      - name: run playbook
+        runs: ansible-playbook ../tp1/ansible/dockerPlaybook.yml
       
