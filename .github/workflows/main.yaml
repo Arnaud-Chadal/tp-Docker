@@ -91,5 +91,5 @@ jobs:
           echo "${{secrets.SSH_KEY}}" > id_rsa
           chmod 400 id_rsa
       - name: run playbook
-        run: ansible-playbook ../tp1/ansible/dockerPlaybook.yml
+        run: ansible-playbook tp1/ansible/dockerPlaybook.yml
       
