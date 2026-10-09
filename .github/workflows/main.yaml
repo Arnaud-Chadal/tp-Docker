@@ -83,7 +83,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: install ansible
-        runs: |
+        run: |
           sudo apt-get update
           sudo apt-get install -y ansible
       - name: create ssh key
@@ -91,5 +91,5 @@ jobs:
           echo "${{secrets.SSH_KEY}} > id_rsa"
           chmod 400 id_rsa
       - name: run playbook
-        runs: ansible-playbook ../tp1/ansible/dockerPlaybook.yml
+        run: ansible-playbook ../tp1/ansible/dockerPlaybook.yml
       
