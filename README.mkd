@@ -1,0 +1,13 @@
+# TP Docker
+
+Tout le code est dans le dossier ./tp1, le dossier ./td1 est celui du premier td d'entraînement
+
+Emplacement des DOCKERFILES :
+* ./tp1/database *Le DOCKERFILE créant l'image du container pour la database*
+* ./tp1/HTML *Le DOCKERFILE créant l'image du container pour l'API*
+* ./tp1/java *Le DOCKERFILE créant l'image du container pour l'application*
+
+Le fichier yml du tp2 (github actions) est à l'emplacement : 
+* Le contenu assure d'effectuer les bonnes actions à chaque push sur le repo
+
+Le code du tp3 est dans le dossier ./tp1/ansible
