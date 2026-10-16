@@ -7,7 +7,34 @@ Emplacement des DOCKERFILES :
 * ./tp1/HTML *Le DOCKERFILE créant l'image du container pour l'API*
 * ./tp1/java *Le DOCKERFILE créant l'image du container pour l'application*
 
+**Docker Compose**
+Docker compose est une alternative plus rapide pour build et run les containers docker afin de déployer son application de manière plus efficace.
+Cela se présente sous la forme d'un fichier contenant plusieurs étapes dans lesquelles on va renseigner des paramètres qui correspondent par exemple aux ports utilisés, aux noms donnés aux images, aux réseaux utilisés et à la façon dont les containers sont connectés entre eux.
+
+
+
 Le fichier yml du tp2 (github actions) est à l'emplacement : ./github/workflows/main.yml
 * Le contenu assure d'effectuer les bonnes actions à chaque push sur le repo
 
 Le code du tp3 est dans le dossier ./tp1/ansible
+
+
+
+Questions :
+
+1.1) :
+
+1.2) : Pour avoir des données persistentes, dans le cas où on voudrais restart et supprimer un container tout en voulant conserver les données.
+
+1.5) : Pour empêcher n'importe qui d'accéder directement à notre serveur java et pour éviter d'avoir à utiliser localhost à chaque fois. (rediriger les utilisateurs)
+
+1.6) : Cela permet de déployer plus rapidement les applications et d'éviter d'avoir  taper plusieurs commandes à chaque fois que l'on veut modifier quelque chose.
+
+
+2.1) : Il s'agit de containers utilisé pour le test qui seront détruits une fois le test terminé.
+
+2.2) : Pour éviter d'écrire en blanc les tokens et credentials dans un repositoy github par exemple, ce qui permettrais à n'importe qui d'altérer notre application. Même si le repository est privé, cela reste un risque.
+
+2.3) : Pour être sûr que la première étape se soit exécutée avant se faire la deuxième, cela assure d'avoir tester avant de publier.
+
+2.4) : Pour être sûr que l'application fonctionne
